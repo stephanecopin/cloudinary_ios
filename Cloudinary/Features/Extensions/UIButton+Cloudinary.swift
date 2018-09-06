@@ -31,13 +31,13 @@ public extension UIButton {
      The image is retrieved from the cache if it exists, otherwise its downloaded and cached.
      
      - parameter url:               The image URL to download.
-     - parameter state:             The UIButton's UIControlState state that uses the specified image.
+     - parameter state:             The UIButton's UIControl.State state that uses the specified image.
      - parameter placeholder:       A placeholder image to be set as the image untill the asynchronus download request finishes.
      - parameter networkAdapter:    A network adapter that implements `CLDNetworkAdapter`.
      CLDNetworkDelegate() by default.
      
      */
-    @objc public func cldSetImage(_ url: String, forState state: UIControlState, cloudinary: CLDCloudinary, placeholder: UIImage? = nil) {
+    @objc public func cldSetImage(_ url: String, forState state: UIControl.State, cloudinary: CLDCloudinary, placeholder: UIImage? = nil) {
         fetchImageForUIElement(url, placeholder: placeholder, cloudinary: cloudinary) { [weak self] (image: UIImage) in
             self?.setImage(image, for: state)
         }
@@ -49,13 +49,13 @@ public extension UIButton {
      
      - parameter publicId:          The remote asset's name (e.g. the public id of an uploaded image).
      - parameter cloudinary:        An instance of CLDCloudinary.
-     - parameter state:             The UIButton's UIControlState state that uses the specified image.
+     - parameter state:             The UIButton's UIControl.State state that uses the specified image.
      - parameter signUrl:           A boolean parameter indicating whether or not to generate a signiture out of the API secret and add it to the generated URL. Default is false.
      - parameter transformation:    An instance of CLDTransformation.
      - parameter placeholder:       A placeholder image to be set as the background image untill the asynchronus download request finishes.
      
      */
-    @objc public func cldSetImage(publicId: String, cloudinary: CLDCloudinary, forState state: UIControlState, signUrl: Bool = false, transformation: CLDTransformation? = nil, placeholder: UIImage? = nil) {
+    @objc public func cldSetImage(publicId: String, cloudinary: CLDCloudinary, forState state: UIControl.State, signUrl: Bool = false, transformation: CLDTransformation? = nil, placeholder: UIImage? = nil) {
         
         let urlGen = cloudinary.createUrl()
         
@@ -83,13 +83,13 @@ public extension UIButton {
      The image is retrieved from the cache if it exists, otherwise its downloaded and cached.
      
      - parameter url:               The image URL to download.
-     - parameter state:             The UIButton's UIControlState state that uses the specified image.
+     - parameter state:             The UIButton's UIControl.State state that uses the specified image.
      - parameter placeholder:       A placeholder image to be set as the background image untill the asynchronus download request finishes.
      - parameter networkAdapter:    A network adapter that implements `CLDNetworkAdapter`.
                                     CLDNetworkDelegate() by default.
      
     */
-    @objc public func cld_setBackgroundImage(_ url: String, forState state: UIControlState, cloudinary: CLDCloudinary, placeholder: UIImage? = nil) {
+    @objc public func cld_setBackgroundImage(_ url: String, forState state: UIControl.State, cloudinary: CLDCloudinary, placeholder: UIImage? = nil) {
         
         let setImageOnMainQueue = { [weak self] (image: UIImage) in
             DispatchQueue.main.async {
@@ -106,13 +106,13 @@ public extension UIButton {
      
      - parameter publicId:          The remote asset's name (e.g. the public id of an uploaded image).
      - parameter cloudinary:        An instance of CLDCloudinary.
-     - parameter state:             The UIButton's UIControlState state that uses the specified image.
+     - parameter state:             The UIButton's UIControl.State state that uses the specified image.
      - parameter signUrl:           A boolean parameter indicating whether or not to generate a signiture out of the API secret and add it to the generated URL. Default is false.
      - parameter transformation:    An instance of CLDTransformation.
      - parameter placeholder:       A placeholder image to be set as the background image untill the asynchronus download request finishes.
      
      */
-    @objc public func cld_setBackgroundImage(publicId: String, cloudinary: CLDCloudinary, forState state: UIControlState, signUrl: Bool = false, transformation: CLDTransformation? = nil, placeholder: UIImage? = nil) {
+    @objc public func cld_setBackgroundImage(publicId: String, cloudinary: CLDCloudinary, forState state: UIControl.State, signUrl: Bool = false, transformation: CLDTransformation? = nil, placeholder: UIImage? = nil) {
         
         let urlGen = cloudinary.createUrl()
         
